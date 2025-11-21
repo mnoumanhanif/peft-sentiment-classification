@@ -27,7 +27,7 @@ for the **IMDb Sentiment Classification** task.
 The notebook performs a **42-run experimental matrix** (3 architectures × 7 configurations × 2 seeds), reproducing the full analysis and tables presented in the report.
 
 📄 *The full PDF report is available in this repository:*
-➡️ **`Gen_AI_A3___IEEE.pdf`** 
+➡️ **`Gen_AI Assignment 03 (24K-8001) - IEEE.pdf`** 
 
 ---
 
