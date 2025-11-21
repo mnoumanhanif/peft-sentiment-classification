@@ -236,7 +236,7 @@ torch
 
 ## 📝 **Citation**
 
-If you use this work, please cite the student research project:
+If you use this work, please cite the research project:
 
 ```
 M. N. Hanif. Parameter-Efficient Fine-Tuning for Sentiment Classification:
