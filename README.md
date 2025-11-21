@@ -36,7 +36,7 @@ The notebook performs a **42-run experimental matrix** (3 architectures × 7 con
 | File                                                                   | Description                                                                                                                |
 | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | **Parameter-Efficient Fine-Tuning for Sentiment Classification.ipynb** | Main Jupyter notebook containing dataset processing, PEFT configuration, training, metrics collection, and visualizations. |
-| **Gen_AI_A3___IEEE.pdf**                                               | Full research report with methodology, results, tables, and analysis.                                                      |
+| **Gen_AI Assignment 03 (24K-8001) - IEEE.pdf**                         | Full research report with methodology, results, tables, and analysis.                                                      |
 | **requirements.txt**                                                   | Python dependencies needed to run the notebook.                                                                            |
 
 This repository intentionally remains lightweight and notebook-centric for ease of use and reproducibility.
