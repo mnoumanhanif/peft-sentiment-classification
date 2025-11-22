@@ -261,5 +261,3 @@ This work uses:
 * NVIDIA CUDA Tooling
 
 Special thanks to the FAST-NUCES Data Science Department.
-
-Just say: **“Generate the README.md file as Markdown”**.
