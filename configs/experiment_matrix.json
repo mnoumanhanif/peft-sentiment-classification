@@ -1,0 +1,88 @@
+{
+  "description": "42-run experimental matrix for PEFT sentiment classification",
+  "dataset": "mteb/imdb",
+  "max_length": 256,
+  "num_epochs": 2,
+  "effective_batch_size": 16,
+  "per_device_batch_size": 8,
+  "gradient_accumulation_steps": 2,
+  "seeds": [42, 43],
+  "architectures": {
+    "distilbert": {
+      "checkpoint": "distilbert-base-uncased",
+      "parameters": "67M",
+      "lora_targets": ["q_lin", "v_lin"],
+      "lora_ffn_targets": ["q_lin", "v_lin", "ffn.lin1", "ffn.lin2"],
+      "ia3_targets": ["q_lin", "v_lin", "out_lin"],
+      "ia3_ff_modules": ["out_lin"]
+    },
+    "roberta": {
+      "checkpoint": "roberta-base",
+      "parameters": "125M",
+      "lora_targets": ["query", "value"],
+      "lora_ffn_targets": ["query", "value", "intermediate.dense", "output.dense"],
+      "ia3_targets": ["query", "value", "output.dense"],
+      "ia3_ff_modules": ["output.dense"]
+    },
+    "deberta": {
+      "checkpoint": "microsoft/deberta-v3-base",
+      "parameters": "184M",
+      "lora_targets": ["query_proj", "value_proj"],
+      "lora_ffn_targets": ["query_proj", "value_proj", "intermediate.dense", "output.dense"],
+      "ia3_targets": ["query_proj", "value_proj", "output.dense"],
+      "ia3_ff_modules": ["output.dense"]
+    }
+  },
+  "experiments": [
+    {
+      "id": "01",
+      "method": "full_ft",
+      "description": "Full Fine-Tuning baseline",
+      "learning_rate": 1e-5
+    },
+    {
+      "id": "02",
+      "method": "lora",
+      "description": "LoRA with rank 8, attention layers",
+      "learning_rate": 1e-5,
+      "lora_rank": 8,
+      "target": "attention"
+    },
+    {
+      "id": "03",
+      "method": "lora",
+      "description": "LoRA rank sensitivity (rank 16)",
+      "learning_rate": 1e-5,
+      "lora_rank": 16,
+      "target": "attention"
+    },
+    {
+      "id": "04",
+      "method": "lora",
+      "description": "LoRA with attention + FFN placement",
+      "learning_rate": 1e-5,
+      "lora_rank": 8,
+      "target": "attention_ffn"
+    },
+    {
+      "id": "05",
+      "method": "qlora",
+      "description": "QLoRA with 4-bit NF4 quantization",
+      "learning_rate": 1e-5,
+      "lora_rank": 8,
+      "target": "attention"
+    },
+    {
+      "id": "06",
+      "method": "ia3",
+      "description": "IA3 adapter tuning",
+      "learning_rate": 1e-5
+    },
+    {
+      "id": "07",
+      "method": "all",
+      "description": "Learning rate optimization (2e-5)",
+      "learning_rate": 2e-5
+    }
+  ]
+}
