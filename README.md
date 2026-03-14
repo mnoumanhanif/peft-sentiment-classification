@@ -150,7 +150,7 @@ See [docs/development.md](docs/development.md) for the full development guide.
 
 ## Dataset
 
-**IMDb Sentiment Classification** - 25,000 training + 25,000 test samples, binary classification (positive/negative), tokenized to max length 256.
+**[IMDb Sentiment Classification](https://huggingface.co/datasets/mteb/imdb)** (`mteb/imdb`) - 25,000 training + 25,000 test samples, binary classification (positive/negative), tokenized to max length 256.
 
 ## Experimental Design
 
